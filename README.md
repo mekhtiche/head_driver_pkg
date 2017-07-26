@@ -17,7 +17,7 @@ Installation:
 
       $ cd catkin_ws/src
 
-      $ git clone https://github.com/mekhtiche/head_driver.git
+      $ git clone https://github.com/mekhtiche/head_driver_pkg.git
 
       $ cd ..
 
@@ -30,7 +30,7 @@ Installation:
     in the end of the file add "source ~/catkin_ws/devel/setup.bash"
     
     
-  To launch the robot:
+  To launch the head package:
 
       $ roslaunch head_driver face.launch
    
@@ -50,3 +50,28 @@ Installation:
         exec "$@"
       fi
 
+  if the package has grafic interface the remote launch will not work, the solution is to use the autostart with option of waitiong for master to start:
+  
+    first in home folder create file launch.sh and type in it :
+      
+        #!/bin/sh
+        export ROS_MASTER_URI=http://odroid:11311
+        ."/opt/ros/groovy/setup.sh"
+        ."/home/pi/catkin_ws/devel/setup.sh"
+        roslaunch --wait head_driver_pkg face.launch
+        
+    save it.
+    
+    in /usr/shar/applications create file "autolaunch.desktop" and put on it: >>>>> use "sudo"
+    
+        [Desktop Entry]
+        Name=autolanch
+        Exec=/home/pi/launch.sh
+        Type=Application
+        Terminal=false
+        
+    save it.
+    
+    now copy and paste the file "autolaunch.desktop" to /etc/xdg/autostart/
+    
+    reboot the system.
