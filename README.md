@@ -56,8 +56,8 @@ Installation:
       
         #!/bin/sh
         export ROS_MASTER_URI=http://odroid:11311
-        ."/opt/ros/groovy/setup.sh"
-        ."/home/pi/catkin_ws/devel/setup.sh"
+        . "/opt/ros/groovy/setup.sh"
+        . "/home/pi/catkin_ws/devel/setup.sh"
         roslaunch --wait head_driver_pkg face.launch
         
     save it.
