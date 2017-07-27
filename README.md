@@ -32,7 +32,7 @@ Installation:
     
   To launch the head package:
 
-      $ roslaunch head_driver face.launch
+      $ roslaunch head_driver_pkg face.launch
    
   To use remote launch with robot_body you should add source command of your work space in the end of file: /opt/ros/groovy/env.sh
   it should look like this:
@@ -52,26 +52,26 @@ Installation:
 
   if the package has grafic interface the remote launch will not work, the solution is to use the autostart with option of waitiong for master to start:
   
-    first in home folder create file launch.sh and type in it :
+  first in home folder create file launch.sh and type in it :
       
-        #!/bin/sh
-        export ROS_MASTER_URI=http://odroid:11311
-        . "/opt/ros/groovy/setup.sh"
-        . "/home/pi/catkin_ws/devel/setup.sh"
-        roslaunch --wait head_driver_pkg face.launch
+      #!/bin/sh
+      export ROS_MASTER_URI=http://odroid:11311
+      . "/opt/ros/groovy/setup.sh"
+      . "/home/pi/catkin_ws/devel/setup.sh"
+      roslaunch --wait head_driver_pkg face.launch
         
-    save it.
+  save it.
     
-    in /usr/shar/applications create file "autolaunch.desktop" and put on it: >>>>> use "sudo"
+  in /usr/shar/applications create file "autolaunch.desktop" and put on it: >>>>> use "sudo"
     
-        [Desktop Entry]
-        Name=autolanch
-        Exec=/home/pi/launch.sh
-        Type=Application
-        Terminal=false
+      [Desktop Entry]
+      Name=autolanch
+      Exec=/home/pi/launch.sh
+      Type=Application
+      Terminal=false
         
-    save it.
-    
-    now copy and paste the file "autolaunch.desktop" to /etc/xdg/autostart/
-    
-    reboot the system.
+  save it.
+
+  now copy and paste the file "autolaunch.desktop" to /etc/xdg/autostart/
+
+  reboot the system.
