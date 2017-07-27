@@ -49,6 +49,8 @@ Installation:
         10.42.0.25  head
         
       save it.
+      
+      Make sure that the raspberrypi always conect to ROBOT Wi_Fi.
    
   To use remote launch with robot_body you should add source command of your work space in the end of file: /opt/ros/groovy/env.sh
   it should look like this:
