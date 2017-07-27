@@ -105,3 +105,15 @@ To configure the VU5 HDMI screen commant all lines in /boot/config.txt and in th
       hdmi_drive=1
       
       
+To Force the screen to stay on
+
+    $ sudo nano /etc/lightdm/lightdm.conf
+    
+Add the following lines to the [SeatDefaults] section:
+
+    # don't sleep the screen
+    xserver-command=X -s 0 dpms
+    
+    
+   
+   
