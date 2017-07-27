@@ -33,6 +33,22 @@ Installation:
   To launch the head package:
 
       $ roslaunch head_driver_pkg face.launch
+      
+  Network configuration:
+  
+    First in raspberrypi configuration change the hostname of raspberrypi to "head" and password to "headdriver" and in interface panel enabel the SSH 
+  
+    Change the configuration in hosts file:
+      
+      $ sudo nano /etc/hosts
+      
+      comment the line of head ip address and add two new lines:
+      
+        #127.0.0.1  head
+        10.42.0.1   odroid
+        10.42.0.25  head
+        
+      save it.
    
   To use remote launch with robot_body you should add source command of your work space in the end of file: /opt/ros/groovy/env.sh
   it should look like this:
@@ -50,9 +66,9 @@ Installation:
         exec "$@"
       fi
 
-  if the package has grafic interface the remote launch will not work, the solution is to use the autostart with option of waitiong for master to start:
+  If the package has grafic interface the remote launch will not work like this package, the solution is to use the autostart with option of waitiong for master to start:
   
-  first in home folder create file launch.sh and type in it :
+  First in home folder create file launch.sh and type in it :
       
       #!/bin/sh
       export ROS_MASTER_URI=http://odroid:11311
@@ -75,3 +91,5 @@ Installation:
   now copy and paste the file "autolaunch.desktop" to /etc/xdg/autostart/
 
   reboot the system.
+  
+  In this method the system will start automaticly when the raspberrypi boot and still waiting for the master to start in the odroid bord.
