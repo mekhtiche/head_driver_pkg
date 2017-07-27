@@ -88,10 +88,20 @@ Installation:
       Type=Application
       Terminal=false
         
-  save it.
+  save it. REF https://askubuntu.com/questions/166777/how-can-you-make-a-sh-file-come-on-at-startup-in-lubuntu-12-04
 
   now copy and paste the file "autolaunch.desktop" to /etc/xdg/autostart/
 
   reboot the system.
   
   In this method the system will start automaticly when the raspberrypi boot and still waiting for the master to start in the odroid bord.
+  
+  
+To configure the VU5 HDMI screen commant all lines in /boot/config.txt and in the end of the file add:
+      
+      hdmi_cvt=800 480 54
+      hdmi_group=0
+      hdmi_mode=87
+      hdmi_drive=1
+      
+      
